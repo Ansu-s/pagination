@@ -15,13 +15,13 @@ public class FlywayConfig {
     DataSource dataSource;
 
     @PostConstruct
-    public void initial(){
+    public void initial() {
         log.info("Migration started");
         executeFlyway(dataSource);
         log.info("Migration ended");
     }
 
-    private void executeFlyway(DataSource dataSource){
+    private void executeFlyway(DataSource dataSource) {
         Flyway flyway = Flyway.configure()
                 .dataSource(dataSource)
                 .locations("classpath:/scripts")
